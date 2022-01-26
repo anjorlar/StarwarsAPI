@@ -37,7 +37,7 @@ class IndexController {
             let { titleId, comment } = req.body
             if (!titleId || !comment || comment.trim() === "") {
                 return res.status(400).json({
-                    message: 'titleId and comment cannot be empty'
+                    message: 'titleId or comment cannot be empty'
                 })
             }
             const urlVal = req.get('host')
