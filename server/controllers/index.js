@@ -25,7 +25,6 @@ class IndexController {
                 data: arr
             })
         } catch (error) {
-            console.log("error", error)
             return res.status(500).json({
                 message: 'Internal server Error'
             })
@@ -58,7 +57,6 @@ class IndexController {
                 data: createComment
             })
         } catch (error) {
-            console.log("error", error)
             return res.status(500).json({
                 message: 'Internal server Error'
             })
@@ -73,7 +71,6 @@ class IndexController {
                 data: result
             })
         } catch (error) {
-            console.log("error", error)
             return res.status(500).json({
                 message: 'Internal server Error'
             })
@@ -175,7 +172,6 @@ class IndexController {
                 finalVal
             })
         } catch (error) {
-            console.log("error", error)
             return res.status(500).json({
                 message: 'Internal server Error'
             })
