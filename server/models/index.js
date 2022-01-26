@@ -12,21 +12,9 @@ const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 let sequelize;
 if (config.use_env_variable) {
-    sequelize = new Sequelize(config.DATABASE_URL, {
-        dialect: 'postgres',
-        protocol: 'postgres',
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-            }
-        }
-    });
+    sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-    sequelize = new Sequelize(config.database, config.username, config.password, {
-        dialect: 'postgres',
-        protocol: 'postgres',
-    });
+    sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
 fs
