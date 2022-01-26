@@ -25,7 +25,6 @@ class IndexController {
                 data: arr
             })
         } catch (error) {
-            console.log("error", error)
             return res.status(500).json({
                 message: 'Internal server Error'
             })
@@ -38,6 +37,11 @@ class IndexController {
             if (!titleId || !comment || comment.trim() === "") {
                 return res.status(400).json({
                     message: 'titleId or comment cannot be empty'
+                })
+            }
+            if (comment.length > 500) {
+                return res.status(400).json({
+                    message: 'comment must be less than 500 words'
                 })
             }
             const urlVal = req.get('host')
@@ -53,7 +57,6 @@ class IndexController {
                 data: createComment
             })
         } catch (error) {
-            console.log("error", error)
             return res.status(500).json({
                 message: 'Internal server Error'
             })
@@ -68,7 +71,6 @@ class IndexController {
                 data: result
             })
         } catch (error) {
-            console.log("error", error)
             return res.status(500).json({
                 message: 'Internal server Error'
             })
@@ -170,7 +172,6 @@ class IndexController {
                 finalVal
             })
         } catch (error) {
-            console.log("error", error)
             return res.status(500).json({
                 message: 'Internal server Error'
             })
