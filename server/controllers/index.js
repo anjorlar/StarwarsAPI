@@ -40,6 +40,11 @@ class IndexController {
                     message: 'titleId or comment cannot be empty'
                 })
             }
+            if (comment.length > 500) {
+                return res.status(400).json({
+                    message: 'comment must be less than 500 words'
+                })
+            }
             const urlVal = req.get('host')
 
             let commentObj = {
