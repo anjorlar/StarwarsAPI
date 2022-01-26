@@ -23,7 +23,10 @@ if (config.use_env_variable) {
         }
     });
 } else {
-    sequelize = new Sequelize(config.database, config.username, config.password, config);
+    sequelize = new Sequelize(config.database, config.username, config.password, {
+        dialect: 'postgres',
+        protocol: 'postgres',
+    });
 }
 
 fs
