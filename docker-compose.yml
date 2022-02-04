@@ -1,0 +1,23 @@
+version: "3"
+services:
+  api:
+    build: .
+    ports:
+      - "3460:3460"
+    environment:
+      - PORT=3460
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    command: npm run start
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=jQA6vH7qyTAIHm7_P4rJuM8yLBraClpt
+      - POSTGRES_USER=tnshoiam
+      - POSTGRES_DB=tnshoiam
